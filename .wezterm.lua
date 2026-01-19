@@ -15,9 +15,24 @@ config.launch_menu = {
     args = { 'C:\\Users\\versl\\scoop\\apps\\git\\current\\bin\\bash.exe', '-l' },
   },
   {
-    label = 'PowerShell 7',
-    args = { 'C:\\Program Files\\PowerShell\\7\\pwsh.exe' },
-  },
-}
-
-return config
+        label = 'PowerShell 7',
+        args = { 'C:\\Program Files\\PowerShell\\7\\pwsh.exe' },
+      },
+    }
+    
+    -- Keybindings
+    config.keys = {
+      {
+        key = '|',
+        mods = 'CTRL|SHIFT',
+        action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+      },
+      {
+        key = '_', -- 'underscore' corresponds to 'Shift + -'
+        mods = 'CTRL|SHIFT',
+        action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
+      },
+    }
+    
+    return config
+    

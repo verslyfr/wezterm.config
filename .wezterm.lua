@@ -28,11 +28,15 @@ config.launch_menu = {
         action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
       },
       {
-        key = '_', -- 'underscore' corresponds to 'Shift + -'
-        mods = 'CTRL|SHIFT',
-        action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
-      },
-    }
-    
-    return config
+            key = '_', -- 'underscore' corresponds to 'Shift + -'
+            mods = 'CTRL|SHIFT',
+            action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
+          },
+          {
+            key = '0',
+            mods = 'CTRL|SHIFT',
+            action = wezterm.action.CloseCurrentPane { confirm = true },
+          },
+        }
+            return config
     

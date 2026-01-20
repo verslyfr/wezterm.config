@@ -5,4 +5,8 @@ This repository contains my personal configuration for [WezTerm](https://wezfurl
 ## Setup
 
 1. Clone this repository.
-2. Symlink or copy `.wezterm.lua` to your home directory or WezTerm configuration path.
+2. Create the configuration directory and link the file:
+   ```bash
+   mkdir -p ~/.config/wezterm
+   ln -s ~/OneDrive/src/wezterm.config/wezterm.lua ~/.config/wezterm/wezterm.lua
+   ```

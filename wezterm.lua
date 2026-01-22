@@ -4,6 +4,7 @@ local config = wezterm.config_builder()
 -- Basic configuration
 config.color_scheme = 'Batman'
 config.font = wezterm.font 'Hack Nerd Font'
+config.font_size = 10.0
 
 -- Default to WSL
 config.default_prog = { 'wsl.exe' }

@@ -8,8 +8,14 @@ config.color_scheme = 'Alabaster'
 config.font = wezterm.font 'Hack Nerd Font'
 config.font_size = 10.0
 
--- Default to WSL
-config.default_prog = { 'wsl.exe' }
+if wezterm.target_triple:find("windows") then
+  -- Running WezTerm on Windows ? launching WSL
+  config.default_prog = { "wsl.exe", "--cd", "~" }
+else
+  -- Running WezTerm inside Linux
+  config.default_prog = { os.getenv("SHELL") or "/bin/bash" }
+  config.default_cwd = wezterm.home_dir
+end
 
 -- Launch Menu
 config.launch_menu = {

@@ -21,11 +21,12 @@ end
 config.launch_menu = {
   {
     label = 'Git Bash',
-    args = { 'C:\\Users\\versl\\scoop\\apps\\git\\current\\bin\\bash.exe', '-l' },
+    args = { 'bash.exe', '-l' },
   },
   {
     label = 'PowerShell 7',
-    args = { 'C:\\Program Files\\PowerShell\\7\\pwsh.exe' },
+    args = { 'pwsh.exe' },
+    cwd = '/mnt/c/Users/versl/',
   },
 }
 

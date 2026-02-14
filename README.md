@@ -9,16 +9,18 @@ This repository contains my personal configuration for [WezTerm](https://wezfurl
    ```bash
    mkdir -p ~/.config/wezterm
    ln -s ~/OneDrive/src/wezterm.config/wezterm.lua ~/.config/wezterm/wezterm.lua
-   ```
-## Launching from WSL 2
-
-So there are issues with wezterm, window decorations, and WSL. The best
-solution I figured out was to run it using X by setting the WAYLAND_DISPLAY to
-nothing before launching wezterm.
-
-```shell
+```
 "C:\Program Files\WSL\wslg.exe" -d openSUSE-Tumbleweed --cd "~" -- WAYLAND_DISPLAY= wezterm
 ```
+
+## Window Title
+
+The configuration includes a `format-window-title` event handler that ensures the window title always contains ` - WezTerm`. This makes it easier to find and control the WezTerm window using tools like AutoHotkey on Windows.
+
+The title format is: `[Z] [Tab Index/Count] Pane Title - WezTerm`
+- `[Z]`: Indicates if the current pane is zoomed.
+- `[1/3]`: Indicates the current tab index (if more than one tab exists).
+
 ## Keybindings
 
 | Key Combination | Action |

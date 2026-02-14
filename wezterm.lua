@@ -4,7 +4,7 @@ local config = wezterm.config_builder()
 -- ============================================================
 -- Basic configuration
 -- ============================================================
-config.color_scheme = 'wombat'
+config.color_scheme = 'Wombat'
 config.font = wezterm.font 'Hack Nerd Font'
 config.font_size = 10.0
 
@@ -52,6 +52,32 @@ config.keys = {
     action = wezterm.action.CloseCurrentPane { confirm = true },
   },
 }
+-- ============================================================
+-- Local Configuration Override
+-- ============================================================
+local local_config_path = wezterm.config_dir .. "/wezterm.local.lua"
+local f = io.open(local_config_path, "r")
+if f then
+  f:close()
+  -- pcall ensures a crash in local config doesn't break WezTerm completely
+  local success, local_module = pcall(dofile, local_config_path)
+
+  if success then
+    if type(local_module) == "table" then
+      -- Mode 1: Simple table merge
+      for k, v in pairs(local_module) do
+        config[k] = v
+      end
+    elseif type(local_module) == "function" then
+      -- Mode 2: Full programmatic control
+      local_module(config, wezterm)
+    end
+    wezterm.log_info("Loaded local configuration: " .. local_config_path)
+  else
+    wezterm.log_error("Error loading local configuration: " .. tostring(local_module))
+  end
+end
+
 -- ============================================================
 -- Final return
 -- ============================================================

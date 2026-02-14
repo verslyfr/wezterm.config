@@ -19,6 +19,13 @@ nothing before launching wezterm.
 ```shell
 "C:\Program Files\WSL\wslg.exe" -d openSUSE-Tumbleweed --cd "~" -- WAYLAND_DISPLAY= wezterm
 ```
+## Keybindings
+
+| Key Combination | Action |
+|-----------------|--------|
+| `CTRL` + `SHIFT` + `\|` | Split Pane Horizontally |
+| `CTRL` + `SHIFT` + `_` | Split Pane Vertically |
+| `CTRL` + `SHIFT` + `0` | Close Current Pane |
 
 ## Local Configuration
 
